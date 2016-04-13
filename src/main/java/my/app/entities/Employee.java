@@ -3,7 +3,7 @@ package my.app.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "employees")
+@Table
 @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
 public class Employee {
     @Id

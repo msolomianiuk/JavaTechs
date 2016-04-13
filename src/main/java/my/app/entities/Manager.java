@@ -3,7 +3,7 @@ package my.app.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "managers")
+@Table
 public class Manager extends Employee {
     @Column
     private int bonus;

@@ -20,11 +20,12 @@ public class TestDataBaseConfig {
     private static final String PROPERTY_NAME_DATABASE_DRIVER = "org.postgresql.Driver";
     private static final String PROPERTY_NAME_DATABASE_URL = "jdbc:postgresql://localhost:5432/hr";
     private static final String PROPERTY_NAME_DATABASE_USERNAME = "mic";
-    private static final String PROPERTY_NAME_DATABASE_PASSWORD = "web";
+    private static final String PROPERTY_NAME_DATABASE_PASSWORD = "mic";
 
     private static final String PROPERTY_NAME_HIBERNATE_DIALECT = "org.hibernate.dialect.PostgreSQL94Dialect";
     private static final String PROPERTY_NAME_HIBERNATE_SHOW_SQL = "true";
     private static final String PROPERTY_NAME_ENTITYMANAGER_PACKAGES_TO_SCAN = "my.app.entities";
+
     private static final String PROPERTY_NAME_HIBERNATE_HBM2DDL_AUTO = "update";
 
     @Bean

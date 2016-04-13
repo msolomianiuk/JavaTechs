@@ -44,7 +44,7 @@ public class DataConfig {
         ds.setMaxIdle(Integer.valueOf(env.getRequiredProperty("db.maxIdle")));
         ds.setTimeBetweenEvictionRunsMillis(Long.valueOf(env.getRequiredProperty("db.timeBetweenEvictionRunsMillis")));
         ds.setMinEvictableIdleTimeMillis(Long.valueOf(env.getRequiredProperty("db.minEvictableIdleTimeMillis")));
-        ds.setTestOnBorrow(Boolean.valueOf(env.getRequiredProperty("db.testOnBorrow")));
+//        ds.setTestOnBorrow(Boolean.valueOf(env.getRequiredProperty("db.testOnBorrow")));
 //        ds.setValidationQuery(env.getRequiredProperty("db.validationQuery"));
 
         return ds;

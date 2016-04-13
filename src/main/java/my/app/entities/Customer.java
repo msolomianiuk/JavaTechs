@@ -3,14 +3,14 @@ package my.app.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "customers")
+@Table
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", length = 6, nullable = false)
     private long id;
 
-    @Column
+    @Column(unique = true)
     private String name;
 
     @OneToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})

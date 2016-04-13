@@ -18,24 +18,16 @@ import org.springframework.test.context.web.WebAppConfiguration;
 @WebAppConfiguration
 public class CustomerServiceImplTest {
 
-//    @Autowired
-//    EntityManagerFactory emf;
-//    private EntityManager em;
-
     @Autowired
     CustomerService customerService;
-
-//    @Before
-//    public void setUp() throws Exception {
-//        em = emf.createEntityManager();
-//    }
 
     @Test
     public void saveOrUpdate() throws Exception {
         Customer customer = new Customer();
-        customer.setName("12345");
+        customer.setName("second customer");
         Project project = new Project();
-        project.setName("123457890");
+//        project.setName("first project");
+//        project.setId(1);
         customer.setProject(project);
         customerService.saveOrUpdate(customer);
     }
@@ -56,11 +48,6 @@ public class CustomerServiceImplTest {
 //        System.out.println(customer);
 //        System.out.println(customer.getProject());
 //    }
-
-    @Test
-    public void update() throws Exception {
-
-    }
 
     @Test
     public void getAll() throws Exception {

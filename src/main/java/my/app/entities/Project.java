@@ -4,14 +4,14 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "projects")
+@Table
 public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private long id;
 
-    @Column
+    @Column(unique = true)
     private String name;
 
     @OneToOne

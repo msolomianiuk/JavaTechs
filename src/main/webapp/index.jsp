@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
     <title>Main page</title>
@@ -8,10 +9,40 @@
     <link rel="stylesheet" href="./resources/css/style.css">
 </head>
 <body>
-<h1>Hello!!!</h1>
+<h1>Human Resources department web system</h1>
 <a href="${pageContext.request.contextPath}customers/getAll">
     <div>
-        Hi!
+        Customers
+    </div>
+</a>
+<a href="${pageContext.request.contextPath}">
+    <div>
+        Projects
+    </div>
+</a>
+<a href="${pageContext.request.contextPath}">
+    <div>
+        Employees
+    </div>
+</a>
+<a href="${pageContext.request.contextPath}">
+    <div>
+        Departments
+    </div>
+</a>
+<a href="${pageContext.request.contextPath}">
+    <div>
+        Managers
+    </div>
+</a>
+<a href="${pageContext.request.contextPath}">
+    <div>
+        Teams
+    </div>
+</a>
+<a href="${pageContext.request.contextPath}">
+    <div>
+        Board of Managers
     </div>
 </a>
 </body>

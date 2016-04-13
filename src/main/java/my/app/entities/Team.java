@@ -5,7 +5,7 @@ import java.util.List;
 
 
 @Entity
-@Table(name = "teams")
+@Table
 public class Team {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,7 +24,6 @@ public class Team {
     public Team(String name, List<Employee> employees) {
         this.name = name;
         this.employees = employees;
-
     }
 
     public long getId() {
