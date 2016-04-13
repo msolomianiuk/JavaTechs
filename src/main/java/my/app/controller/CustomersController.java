@@ -20,7 +20,7 @@ public class CustomersController {
 
         model.addAttribute("customers", customerService.getAll());
 
-        return "customer/customers";
+        return "customer/all";
     }
 
     @RequestMapping(value = "/delete")
@@ -33,6 +33,11 @@ public class CustomersController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String add() {
-        return "customer/form";
+
+
+
+
+
+        return "redirect:/customers/getAll";
     }
 }
