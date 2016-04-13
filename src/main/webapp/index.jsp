@@ -10,7 +10,7 @@
 </head>
 <body>
 <h1>Human Resources department web system</h1>
-<a href="${pageContext.request.contextPath}customers/getAll">
+<a href="${pageContext.request.contextPath}customer/getAll">
     <div>
         Customers
     </div>

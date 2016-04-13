@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping(value = "/customers")
-public class CustomersController {
+@RequestMapping(value = "/customer")
+public class CustomerController {
 
     @Autowired
     private CustomerService customerService;
@@ -28,7 +28,12 @@ public class CustomersController {
 
         customerService.delete(id);
 
-        return "redirect:/customers/getAll";
+        return "redirect:/customer/getAll";
+    }
+
+    @RequestMapping(value = "/form")
+    public String form() {
+        return "customer/form";
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
@@ -38,6 +43,6 @@ public class CustomersController {
 
 
 
-        return "redirect:/customers/getAll";
+        return "redirect:/customer/getAll";
     }
 }

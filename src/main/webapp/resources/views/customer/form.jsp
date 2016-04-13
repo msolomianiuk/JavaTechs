@@ -7,10 +7,19 @@
     <script src="http://code.jquery.com/jquery-2.2.1.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="../../resources/css/style.css">
+    <link rel="stylesheet" href="../../../resources/css/style.css">
 </head>
 <body>
-<h1>Customers</h1>
+<h1>Add customer</h1>
+
+
+
+
+
+
+
+
+
 <table>
     <tr>
         <th>id</th>
@@ -22,10 +31,10 @@
             <td>${customer.id}</td>
             <td>${customer.name}</td>
             <td>${customer.project.name}</td>
-            <td><a href="${pageContext.request.contextPath}/customers/delete?id=${customer.id}">X</a></td>
+            <td><a href="${pageContext.request.contextPath}/customer/delete?id=${customer.id}">X</a></td>
         </tr>
     </c:forEach>
-    <tr><td><a href="${pageContext.request.contextPath}/customers/add">+</a></td></tr>
+    <tr><td><a href="${pageContext.request.contextPath}/customer/add">+</a></td></tr>
 </table>
 </body>
 </html>
