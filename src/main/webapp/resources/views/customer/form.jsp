@@ -11,7 +11,13 @@
 </head>
 <body>
 <h1>Add customer</h1>
+<form action="customer/add" method="post">
 
+
+
+
+
+</form>
 
 
 

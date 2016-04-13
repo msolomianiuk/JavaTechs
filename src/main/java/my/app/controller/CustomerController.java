@@ -36,7 +36,7 @@ public class CustomerController {
         return "customer/form";
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/add")
     public String add() {
 
 
