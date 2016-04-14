@@ -7,40 +7,22 @@
     <script src="http://code.jquery.com/jquery-2.2.1.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href=<c:url value="../../css/style.css"/>>
+<%--<link rel="stylesheet" href="../../css/style.css">--%>
     <link rel="stylesheet" href="../../../resources/css/style.css">
 </head>
 <body>
 <h1>Add customer</h1>
-<form action="customer/add" method="post">
-
-
-
-
-
-</form>
-
-
-
-
-
-
-
-
-<table>
-    <tr>
-        <th>id</th>
-        <th>name</th>
-        <th>project name</th>
-    </tr>
-    <c:forEach var="customer" items= "${customers}">
+<form:form action="customer/add" commandName="customer" method="post">
+    <table>
         <tr>
-            <td>${customer.id}</td>
-            <td>${customer.name}</td>
-            <td>${customer.project.name}</td>
-            <td><a href="${pageContext.request.contextPath}/customer/delete?id=${customer.id}">X</a></td>
+            <%--<td><label for="name">name:</label></td>--%>
+            <%--<td><form:input path="customer.name"/></td>--%>
         </tr>
-    </c:forEach>
-    <tr><td><a href="${pageContext.request.contextPath}/customer/add">+</a></td></tr>
-</table>
+        <tr>
+            <td><input type="submit" value="save"/></td>
+        </tr>
+    </table>
+</form:form>
 </body>
 </html>

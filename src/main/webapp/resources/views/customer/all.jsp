@@ -7,7 +7,10 @@
     <script src="http://code.jquery.com/jquery-2.2.1.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href=<c:url value="../../css/style.css"/>>
+    <%--<link rel="stylesheet" href="../../css/style.css">--%>
     <link rel="stylesheet" href="../../../resources/css/style.css">
+
 </head>
 <body>
 <h1>Customers</h1>
