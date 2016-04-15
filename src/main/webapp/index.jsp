@@ -15,7 +15,7 @@
         Customers
     </div>
 </a>
-<a href="${pageContext.request.contextPath}">
+<a href="${pageContext.request.contextPath}project/getAll">
     <div>
         Projects
     </div>
