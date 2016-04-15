@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping(value = "/project")
@@ -20,5 +21,14 @@ public class ProjectController {
         model.addAttribute("projects", projectService.getAll());
 
         return "project/all";
+    }
+
+
+    @RequestMapping(value = "/delete")
+    public String delete(@RequestParam(value = "id") long id) {
+
+        projectService.delete(id);
+
+        return "redirect:/project/getAll";
     }
 }

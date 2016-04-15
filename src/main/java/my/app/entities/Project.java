@@ -16,8 +16,7 @@ public class Project {
 
     @OneToOne
     @JoinColumn(name = "manager_id")
-    private
-    Manager manager;
+    private Manager manager;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     private List<Employee> employees;
@@ -26,7 +25,6 @@ public class Project {
     }
 
     public Project(String name, Manager manager, List<Employee> employees) {
-
         this.name = name;
         this.manager = manager;
         this.employees = employees;

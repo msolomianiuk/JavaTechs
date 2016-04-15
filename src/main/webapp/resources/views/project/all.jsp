@@ -22,8 +22,8 @@
         <tr>
             <td>${project.id}</td>
             <td>${project.name}</td>
-            <td>${project.manager }</td>
-            <td><a href="${pageContext.request.contextPath}/customer/delete?id=${customer.id}">X</a></td>
+            <td>${project.manager.name}</td>
+            <td><a href="${pageContext.request.contextPath}/project/delete?id=${customer.id}">X</a></td>
         </tr>
     </c:forEach>
     <tr><td><a href="${pageContext.request.contextPath}/customer/form">+</a></td></tr>
