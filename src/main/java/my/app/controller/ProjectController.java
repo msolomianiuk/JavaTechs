@@ -1,6 +1,5 @@
 package my.app.controller;
 
-import my.app.entities.Customer;
 import my.app.entities.Project;
 import my.app.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +18,7 @@ public class ProjectController {
     ProjectService projectService;
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET)
-    public String getMyPage(Model model) {
+    public String getAll(Model model) {
 
         model.addAttribute("projects", projectService.getAll());
 
@@ -36,7 +35,7 @@ public class ProjectController {
 
     @RequestMapping(value = "/form")
     public String form(Model model) {
-        model.addAttribute("customer", new Customer());
+        model.addAttribute("project", new Project());
 
         return "project/form";
     }

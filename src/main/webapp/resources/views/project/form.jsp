@@ -17,7 +17,7 @@
         <form:input path="name"/>
     </div>
     <div class="form-group">
-        <label for="manager.name">project.name:</label><br>
+        <label for="manager.name">manager name:</label><br>
         <form:input path="manager.name"/>
     </div>
     <div class="form-group">

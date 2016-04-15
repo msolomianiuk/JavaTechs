@@ -3,7 +3,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
-    <title>Projects</title>
+    <title>Managers</title>
     <script src="http://code.jquery.com/jquery-2.2.1.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -11,22 +11,24 @@
 
 </head>
 <body>
-<h1>Projects</h1>
+<h1>Managers</h1>
 <table>
     <tr>
         <th>id</th>
         <th>name</th>
-        <th>project manager name</th>
+        <th>bonus</th>
+        <th>project name</th>
     </tr>
-    <c:forEach var="project" items= "${projects}">
+    <c:forEach var="manager" items= "${managers}">
         <tr>
-            <td>${project.id}</td>
-            <td>${project.name}</td>
-            <td>${project.manager.name}</td>
-            <td><a href="${pageContext.request.contextPath}/project/delete?id=${project.id}">X</a></td>
+            <td>${manager.id}</td>
+            <td>${manager.name}</td>
+            <td>${manager.bonus}</td>
+            <td>${manager.project.name}</td>
+            <td><a href="${pageContext.request.contextPath}/manager/delete?id=${manager.id}">X</a></td>
         </tr>
     </c:forEach>
-    <tr><td><a href="${pageContext.request.contextPath}/project/form">+</a></td></tr>
+    <tr><td><a href="${pageContext.request.contextPath}/manager/form">+</a></td></tr>
 </table>
 </body>
 </html>

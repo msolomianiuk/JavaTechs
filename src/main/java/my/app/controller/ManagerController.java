@@ -1,7 +1,7 @@
 package my.app.controller;
 
-import my.app.entities.Customer;
-import my.app.service.CustomerService;
+import my.app.entities.Manager;
+import my.app.service.ManagerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,38 +11,38 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping(value = "/customer")
-public class CustomerController {
+@RequestMapping(value = "/manager")
+public class ManagerController {
 
     @Autowired
-    private CustomerService customerService;
+    private ManagerService managerService;
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET)
     public String getAll(Model model) {
 
-        model.addAttribute("customers", customerService.getAll());
+        model.addAttribute("managers", managerService.getAll());
 
-        return "customer/all";
+        return "manager/all";
     }
 
     @RequestMapping(value = "/delete")
     public String delete(@RequestParam(value = "id") long id) {
 
-        customerService.delete(id);
+        managerService.delete(id);
 
-        return "redirect:/customer/getAll";
+        return "redirect:/manager/getAll";
     }
 
     @RequestMapping(value = "/form")
     public String form(Model model) {
-        model.addAttribute("customer", new Customer());
+        model.addAttribute("customer", new Manager());
 
-        return "customer/form";
+        return "manager/form";
     }
 
     @RequestMapping(value = "/add")
-    public String add(@ModelAttribute Customer customer, Model model) {
-        customerService.saveOrUpdate(customer);
-        return "redirect:/customer/getAll";
+    public String add(@ModelAttribute Manager manager, Model model) {
+        managerService.saveOrUpdate(manager);
+        return "redirect:/manager/getAll";
     }
 }
