@@ -13,30 +13,30 @@ import java.util.List;
 public class CustomerServiceImpl implements CustomerService {
 
     @Autowired
-    CustomerRepository customerRepository;
+    CustomerRepository repository;
 
     @Override
     public void delete(long id) {
-        customerRepository.delete(id);
+        repository.delete(id);
     }
 
     @Override
     public Customer getById(long id) {
-        return customerRepository.findOne(id);
+        return repository.findOne(id);
     }
 
     @Override
     public Customer getByName(String name) {
-        return customerRepository.findByName(name);
+        return repository.findByName(name);
     }
 
     @Override
     public void saveOrUpdate(Customer customer) {
-        customerRepository.saveAndFlush(customer);
+        repository.saveAndFlush(customer);
     }
 
     @Override
     public List<Customer> getAll() {
-        return customerRepository.findAll();
+        return repository.findAll();
     }
 }
