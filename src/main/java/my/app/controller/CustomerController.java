@@ -5,7 +5,6 @@ import my.app.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -35,13 +34,14 @@ public class CustomerController {
     }
 
     @RequestMapping(value = "/form")
-    public String form() {
+    public String form(Model model) {
+        model.addAttribute("customer", new Customer());
+
         return "customer/form";
     }
 
     @RequestMapping(value = "/add")
-    public String add(@ModelAttribute Customer customer, Model model, BindingResult bindingResult) {
-//        model.addAttribute("customer", new Customer());
+    public String add(@ModelAttribute Customer customer, Model model) {
         customerService.saveOrUpdate(customer);
         return "redirect:/customer/getAll";
     }
