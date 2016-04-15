@@ -16,6 +16,7 @@ public class Project {
 
     @OneToOne
     @JoinColumn(name = "manager_id")
+    private
     Manager manager;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
@@ -24,9 +25,10 @@ public class Project {
     public Project() {
     }
 
-    public Project(String name, List<Employee> employees) {
+    public Project(String name, Manager manager, List<Employee> employees) {
 
         this.name = name;
+        this.manager = manager;
         this.employees = employees;
     }
 
@@ -47,6 +49,14 @@ public class Project {
         this.name = name;
     }
 
+    public Manager getManager() {
+        return manager;
+    }
+
+    public void setManager(Manager manager) {
+        this.manager = manager;
+    }
+
     public List<Employee> getEmployees() {
         return employees;
     }
@@ -56,16 +66,8 @@ public class Project {
     }
 
     @Override
-    public String toString() {
-        return "Project{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", employees=" + employees +
-                '}';
-    }
-
-    @Override
     public boolean equals(Object o) {
+
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
@@ -73,6 +75,7 @@ public class Project {
 
         if (id != project.id) return false;
         if (name != null ? !name.equals(project.name) : project.name != null) return false;
+        if (manager != null ? !manager.equals(project.manager) : project.manager != null) return false;
         return employees != null ? employees.equals(project.employees) : project.employees == null;
 
     }
@@ -81,7 +84,18 @@ public class Project {
     public int hashCode() {
         int result = (int) (id ^ (id >>> 32));
         result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (manager != null ? manager.hashCode() : 0);
         result = 31 * result + (employees != null ? employees.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Project{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", manager=" + manager +
+                ", employees=" + employees +
+                '}';
     }
 }
