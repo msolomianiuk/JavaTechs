@@ -20,27 +20,27 @@
         Projects
     </div>
 </a>
-<a href="${pageContext.request.contextPath}">
+<a href="${pageContext.request.contextPath}employee/getAll">
     <div>
         Employees
     </div>
 </a>
-<a href="${pageContext.request.contextPath}">
+<a href="${pageContext.request.contextPath}department/getAll">
     <div>
         Departments
     </div>
 </a>
-<a href="${pageContext.request.contextPath}manager/getAll">
+<a href="${pageContext.request.contextPath}employee/manager/getAll">
     <div>
         Managers
     </div>
 </a>
-<a href="${pageContext.request.contextPath}">
+<a href="${pageContext.request.contextPath}team/getAll">
     <div>
         Teams
     </div>
 </a>
-<a href="${pageContext.request.contextPath}">
+<a href="${pageContext.request.contextPath}bom/getAll">
     <div>
         Board of Managers
     </div>

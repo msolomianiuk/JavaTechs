@@ -28,5 +28,9 @@
     </c:forEach>
     <tr><td><a href="${pageContext.request.contextPath}/project/form">+</a></td></tr>
 </table>
+<br><br><br>
+<a href="${pageContext.request.contextPath}/">
+    <button class="btn-default">home</button>
+</a>
 </body>
 </html>

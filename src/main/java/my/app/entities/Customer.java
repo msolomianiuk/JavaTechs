@@ -10,7 +10,7 @@ public class Customer {
     @Column(name = "id", length = 6, nullable = false)
     private long id;
 
-    @Column(unique = true)
+    @Column
     private String name;
 
     @OneToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})

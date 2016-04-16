@@ -11,10 +11,10 @@ public class Project {
     @Column
     private long id;
 
-    @Column(unique = true)
+    @Column
     private String name;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "manager_id")
     private Manager manager;
 

@@ -3,7 +3,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
-    <title>Managers</title>
+    <title>Departments</title>
     <script src="http://code.jquery.com/jquery-2.2.1.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -11,24 +11,24 @@
 
 </head>
 <body>
-<h1>Managers</h1>
+<h1>Departments</h1>
 <table>
     <tr>
         <th>id</th>
         <th>name</th>
-        <th>bonus</th>
-        <th>project name</th>
     </tr>
-    <c:forEach var="manager" items= "${managers}">
+    <c:forEach var="department" items= "${departments}">
         <tr>
-            <td>${manager.id}</td>
-            <td>${manager.name}</td>
-            <td>${manager.bonus}</td>
-            <td>${manager.project.name}</td>
-            <td><a href="${pageContext.request.contextPath}/manager/delete?id=${manager.id}">X</a></td>
+            <td>${department.id}</td>
+            <td>${department.name}</td>
+            <td><a href="${pageContext.request.contextPath}/department/delete?id=${department.id}">X</a></td>
         </tr>
     </c:forEach>
-    <tr><td><a href="${pageContext.request.contextPath}/manager/form">+</a></td></tr>
+    <tr><td><a href="${pageContext.request.contextPath}/department/form">+</a></td></tr>
 </table>
+<br><br><br>
+<a href="${pageContext.request.contextPath}/">
+    <button class="btn-default">home</button>
+</a>
 </body>
 </html>

@@ -12,7 +12,7 @@ public class BoardOfManagers {
     @Column
     private long id;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "department_id")
     private Department department;
 

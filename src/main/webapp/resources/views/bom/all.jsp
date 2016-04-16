@@ -3,35 +3,30 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
-    <title>Customers</title>
+    <title>Boards of Managers</title>
     <script src="http://code.jquery.com/jquery-2.2.1.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../../../resources/css/style.css">
-    <script src="../../../resources/js/ajax.js"></script>
+
 </head>
 <body>
-<h1>Customers</h1>
-<table id="table">
+<h1>Boards of Managers</h1>
+<table>
     <tr>
         <th>id</th>
-        <th>name</th>
-        <th>project name</th>
+        <th>department name</th>
+        rw
     </tr>
-    <c:forEach var="customer" items="${customers}">
+    <c:forEach var="bom" items="${boms}">
         <tr>
-            <td>${customer.id}</td>
-            <td>${customer.name}</td>
-            <td>${customer.project.name}</td>
-            <td>
-                <button value="${pageContext.request.contextPath}/customer/delete?id=${customer.id}" id="ref"
-                        class="btn-default" onclick="ajax()">X
-                </button>
-            </td>
+            <td>${bom.id}</td>
+            <td>${bom.department.name}</td>
+            <td><a href="${pageContext.request.contextPath}/bom/delete?id=${bom.id}">X</a></td>
         </tr>
     </c:forEach>
     <tr>
-        <td><a href="${pageContext.request.contextPath}/customer/form">+</a></td>
+        <td><a href="${pageContext.request.contextPath}/bom/form">+</a></td>
     </tr>
 </table>
 <br><br><br>

@@ -1,7 +1,7 @@
 package my.app.controller;
 
-import my.app.entities.Project;
-import my.app.service.ProjectService;
+import my.app.entities.Team;
+import my.app.service.TeamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,38 +11,38 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping(value = "/project")
-public class ProjectController {
+@RequestMapping(value = "/team")
+public class TeamController {
 
     @Autowired
-    ProjectService projectService;
+    TeamService teamService;
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET)
     public String getAll(Model model) {
 
-        model.addAttribute("projects", projectService.getAll());
+        model.addAttribute("teams", teamService.getAll());
 
-        return "project/all";
+        return "team/all";
     }
 
     @RequestMapping(value = "/delete")
     public String delete(@RequestParam(value = "id") long id) {
 
-        projectService.delete(id);
+        teamService.delete(id);
 
-        return "redirect:/project/getAll";
+        return "redirect:/team/getAll";
     }
 
     @RequestMapping(value = "/form")
     public String form(Model model) {
-        model.addAttribute("project", new Project());
+        model.addAttribute("team", new Team());
 
-        return "project/form";
+        return "team/form";
     }
 
     @RequestMapping(value = "/add")
-    public String add(@ModelAttribute Project project) {
-        projectService.saveOrUpdate(project);
-        return "redirect:/project/getAll";
+    public String add(@ModelAttribute Team team) {
+        teamService.saveOrUpdate(team);
+        return "redirect:/team/getAll";
     }
 }

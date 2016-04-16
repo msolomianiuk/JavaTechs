@@ -1,7 +1,7 @@
 package my.app.controller;
 
-import my.app.entities.Project;
-import my.app.service.ProjectService;
+import my.app.entities.Department;
+import my.app.service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,38 +11,38 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping(value = "/project")
-public class ProjectController {
+@RequestMapping(value = "/department")
+public class DepartmentController {
 
     @Autowired
-    ProjectService projectService;
+    DepartmentService departmentService;
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET)
     public String getAll(Model model) {
 
-        model.addAttribute("projects", projectService.getAll());
+        model.addAttribute("departments", departmentService.getAll());
 
-        return "project/all";
+        return "department/all";
     }
 
     @RequestMapping(value = "/delete")
     public String delete(@RequestParam(value = "id") long id) {
 
-        projectService.delete(id);
+        departmentService.delete(id);
 
-        return "redirect:/project/getAll";
+        return "redirect:/department/getAll";
     }
 
     @RequestMapping(value = "/form")
     public String form(Model model) {
-        model.addAttribute("project", new Project());
+        model.addAttribute("department", new Department());
 
-        return "project/form";
+        return "department/form";
     }
 
     @RequestMapping(value = "/add")
-    public String add(@ModelAttribute Project project) {
-        projectService.saveOrUpdate(project);
-        return "redirect:/project/getAll";
+    public String add(@ModelAttribute Department department) {
+        departmentService.saveOrUpdate(department);
+        return "redirect:/department/getAll";
     }
 }

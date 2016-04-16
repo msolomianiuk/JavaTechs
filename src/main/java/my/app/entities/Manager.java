@@ -8,7 +8,7 @@ public class Manager extends Employee {
     @Column
     private int bonus;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "project_id")
     private Project project;
 
