@@ -1,6 +1,7 @@
 package my.app.entities;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table
@@ -21,14 +22,18 @@ public class Employee {
     @JoinColumn(name = "department_id")
     private Department department;
 
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    private List<Team> teams;
+
     public Employee() {
     }
 
-    public Employee(String name, int salary, Department department) {
+    public Employee(String name, int salary, Department department, List<Team> teams) {
 
         this.name = name;
         this.salary = salary;
         this.department = department;
+        this.teams = teams;
     }
 
     public long getId() {
@@ -64,18 +69,17 @@ public class Employee {
         this.department = department;
     }
 
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", salary=" + salary +
-                ", department=" + department +
-                '}';
+    public List<Team> getTeams() {
+        return teams;
+    }
+
+    public void setTeams(List<Team> teams) {
+        this.teams = teams;
     }
 
     @Override
     public boolean equals(Object o) {
+
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
@@ -84,7 +88,8 @@ public class Employee {
         if (id != employee.id) return false;
         if (salary != employee.salary) return false;
         if (name != null ? !name.equals(employee.name) : employee.name != null) return false;
-        return department != null ? department.equals(employee.department) : employee.department == null;
+        if (department != null ? !department.equals(employee.department) : employee.department != null) return false;
+        return teams != null ? teams.equals(employee.teams) : employee.teams == null;
 
     }
 
@@ -94,6 +99,18 @@ public class Employee {
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + salary;
         result = 31 * result + (department != null ? department.hashCode() : 0);
+        result = 31 * result + (teams != null ? teams.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", salary=" + salary +
+                ", department=" + department +
+                ", teams=" + teams +
+                '}';
     }
 }

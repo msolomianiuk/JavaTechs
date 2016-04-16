@@ -1,6 +1,7 @@
 package my.app.entities;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table
@@ -21,8 +22,8 @@ public class Manager extends Employee {
         this.project = project;
     }
 
-    public Manager(String name, int salary, Department department, int bonus, Project project) {
-        super(name, salary, department);
+    public Manager(String name, int salary, Department department, List<Team> teams, int bonus, Project project) {
+        super(name, salary, department, teams);
         this.bonus = bonus;
         this.project = project;
     }

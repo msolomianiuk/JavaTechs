@@ -15,7 +15,7 @@ public class Team {
     @Column
     private String name;
 
-    @OneToMany
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     private List<Employee> employees;
 
     public Team() {
