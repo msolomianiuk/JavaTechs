@@ -30,7 +30,7 @@
         Departments
     </div>
 </a>
-<a href="${pageContext.request.contextPath}">
+<a href="${pageContext.request.contextPath}manager/getAll">
     <div>
         Managers
     </div>

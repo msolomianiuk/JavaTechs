@@ -25,12 +25,12 @@ public class CustomerController {
         return "customer/all";
     }
 
-    @RequestMapping(value = "/delete")
-    public String delete(@RequestParam(value = "id") long id) {
+    @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
+    public void delete(@RequestParam(value = "id") long id) {
 
         customerService.delete(id);
 
-        return "redirect:/customer/getAll";
+//        return "redirect:/customer/getAll";
     }
 
     @RequestMapping(value = "/form")
@@ -40,7 +40,7 @@ public class CustomerController {
         return "customer/form";
     }
 
-    @RequestMapping(value = "/add")
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String add(@ModelAttribute Customer customer, Model model) {
         customerService.saveOrUpdate(customer);
         return "redirect:/customer/getAll";

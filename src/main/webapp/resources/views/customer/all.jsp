@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
@@ -12,21 +12,31 @@
 </head>
 <body>
 <h1>Customers</h1>
-<table>
+<table id="table">
     <tr>
         <th>id</th>
         <th>name</th>
         <th>project name</th>
     </tr>
-    <c:forEach var="customer" items= "${customers}">
+    <c:forEach var="customer" items="${customers}">
         <tr>
             <td>${customer.id}</td>
             <td>${customer.name}</td>
             <td>${customer.project.name}</td>
-            <td><a href="${pageContext.request.contextPath}/customer/delete?id=${customer.id}">X</a></td>
+            <td><button id="ref" class="btn-default">X</button></td>
+            <script type="text/javascript">
+                var ref = $('#ref');
+                ref.on('click', function () {
+                    $.ajax({
+                        type: 'DELETE',
+                        url: "${pageContext.request.contextPath}/customer/delete?id=${customer.id}"})
+                });
+            </script>
         </tr>
     </c:forEach>
-    <tr><td><a href="${pageContext.request.contextPath}/customer/form">+</a></td></tr>
+    <tr>
+        <td><a href="${pageContext.request.contextPath}/customer/form">+</a></td>
+    </tr>
 </table>
 </body>
 </html>
